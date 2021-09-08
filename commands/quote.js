@@ -12,7 +12,7 @@ module.exports = {
         const fetch = require('node-fetch')
         tags = [...args]
         try {
-            const result = await fetch(`https://quotable.io/random?tags=${[...tags]}`)
+            const result = await fetch(`https://quotable.io/random?tags=${tags.join(",")}`)
             const data = await result.json()
             msg.reply(data)
         } catch (error) {
