@@ -1,4 +1,4 @@
-
+import fetch from "node-fetch";
 export function countLetters(text) {
     const array = text.split('')
     const result = {}
@@ -27,4 +27,22 @@ export function reverse(text){
     }
     return pomocnaLista.join("")
    
+}
+export const myPromise = new Promise((resolve,reject)=>{
+    let randomNumber
+    setTimeout(() => {
+        randomNumber = Math.ceil(Math.random() * 10)
+        if(randomNumber > 5){
+            resolve(randomNumber)
+        }
+        else{
+            reject(new Error("New error"))
+        }
+    }, 2000);
+    
+})
+export async function getQuote() {
+    const result = await fetch("https://quotable.io/quotes?page=1")
+    const data = await result.json()
+    return data
 }

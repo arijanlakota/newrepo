@@ -8,12 +8,15 @@ module.exports = {
 	args:false,
 	usage:false,
 	// eslint-disable-next-line no-unused-vars
-	execute(msg, args) {
+	async execute(msg, args) {
+        const fetch = require('node-fetch')
+        tags = [...args]
         try {
-            const data = await getQuote()
-            msg.reply(`${data.content} —${data.author}`);
+            const result = await fetch(`https://quotable.io/random?tags=${[...tags]}`)
+            const data = await result.json()
+            msg.reply(data)
         } catch (error) {
-            msg.reply(error)
-        }
+            console.log(error)
+        }         
 	},
 };
