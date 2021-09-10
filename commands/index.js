@@ -13,5 +13,6 @@ module.exports = {
 	Tableflip: require('./tableflip'),
 	Unflip: require('./unflip'),
 	Shrug: require('./shrug'),
-	Quote: require('./quote')
+	Quote: require('./quote'),
+	Gif: require('./forImg')
 };
